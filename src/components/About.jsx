@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { GraduationCap, Zap, Target, Users } from 'lucide-react';
 
 const stats = [
-  { value: '3+', label: 'Projects Built' },
+  { value: '5+', label: 'Projects Built' },
   { value: '5+', label: 'Technologies' },
   { value: 'Final', label: 'Year CS Student' },
   { value: '2026', label: 'Graduating' },
