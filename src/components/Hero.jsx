@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { GitFork, Rss, Mail, ArrowDown, Download } from 'lucide-react';
+import { GitFork, Rss, ArrowDown } from 'lucide-react';
 
 const TYPED_STRINGS = [
   'Full-Stack Developer',
@@ -98,17 +98,15 @@ export default function Hero() {
             View My Work
           </a>
           <a href="#contact" className="btn-outline text-base px-8 py-3.5">
-            <Download size={18} />
             Get In Touch
           </a>
         </div>
 
-        {/* Social links */}
+        {/* Social links — GitHub & LinkedIn only */}
         <div className="flex items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
           {[
             { icon: GitFork, label: 'GitHub', href: 'https://github.com/mulmukendi' },
-            { icon: Rss, label: 'LinkedIn', href: 'https://linkedin.com/in/mulumba-mukendi' },
-            { icon: Mail, label: 'Email', href: 'mailto:mulmukendi@gmail.com' },
+            { icon: Rss, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mulumba-mukendi-61a34b25b' },
           ].map(({ icon: Icon, label, href }) => (
             <a
               key={label}
@@ -121,12 +119,6 @@ export default function Hero() {
               <Icon size={20} />
             </a>
           ))}
-
-          <span className="w-px h-8 bg-white/10 mx-1" />
-
-          <div className="flex items-center gap-2 text-slate-500 text-sm">
-            <span className="font-mono">068 238 7102</span>
-          </div>
         </div>
 
         {/* Scroll cue */}

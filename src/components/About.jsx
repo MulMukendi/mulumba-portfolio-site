@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { GraduationCap, MapPin, Phone, Mail, Zap, Target, Users } from 'lucide-react';
+import { GraduationCap, Zap, Target, Users } from 'lucide-react';
 
 const stats = [
   { value: '3+', label: 'Projects Built' },
@@ -45,7 +45,6 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="relative py-24 lg:py-32">
-      {/* Subtle divider glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-primary-500/40 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,44 +58,34 @@ export default function About() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left — avatar + contact card */}
+          {/* Left — avatar */}
           <div className="reveal opacity-0 flex flex-col items-center lg:items-start gap-6">
-            {/* Avatar placeholder */}
             <div className="relative w-56 h-56 mx-auto lg:mx-0">
               <div className="w-full h-full rounded-3xl bg-gradient-to-br from-primary-600 via-violet-600 to-cyan-500 p-1 animate-glow">
                 <div className="w-full h-full rounded-3xl bg-dark-800 flex items-center justify-center">
                   <span className="text-8xl font-black gradient-text select-none">M</span>
                 </div>
               </div>
-              {/* Floating badge */}
               <div className="absolute -bottom-4 -right-4 glass-card glow-border px-4 py-2 text-sm font-semibold text-white">
                 <span className="text-emerald-400 mr-1">●</span> Open to work
               </div>
             </div>
 
-            {/* Contact info card */}
-            <div className="glass-card w-full p-5 space-y-3 mt-4">
-              {[
-                { icon: Mail, text: 'mulmukendi@gmail.com', href: 'mailto:mulmukendi@gmail.com' },
-                { icon: Phone, text: '068 238 7102', href: 'tel:+27682387102' },
-                { icon: MapPin, text: '346 Weir Street, Pretoria Gardens', href: null },
-                { icon: GraduationCap, text: 'Tshwane University of Technology', href: null },
-              ].map(({ icon: Icon, text, href }) => (
-                <div key={text} className="flex items-center gap-3 text-slate-400 text-sm">
-                  <div className="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
-                    <Icon size={15} className="text-primary-400" />
-                  </div>
-                  {href ? (
-                    <a href={href} className="hover:text-primary-400 transition-colors truncate">{text}</a>
-                  ) : (
-                    <span className="truncate">{text}</span>
-                  )}
+            {/* Education card — no personal contact info */}
+            <div className="glass-card w-full p-5 mt-4">
+              <div className="flex items-center gap-3 text-slate-300 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                  <GraduationCap size={15} className="text-primary-400" />
                 </div>
-              ))}
+                <div>
+                  <div className="text-white font-medium">Tshwane University of Technology</div>
+                  <div className="text-slate-500 text-xs mt-0.5">BSc Computer Science · Final Year</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right — bio + stats */}
+          {/* Right — bio + stats + highlights */}
           <div className="reveal opacity-0 space-y-8">
             <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
@@ -116,7 +105,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Stats row */}
+            {/* Stats */}
             <div className="grid grid-cols-4 gap-3">
               {stats.map(({ value, label }) => (
                 <div key={label} className="glass-card p-4 text-center">

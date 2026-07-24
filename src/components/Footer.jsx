@@ -1,4 +1,4 @@
-import { GitFork, Rss, Mail, Heart, ArrowUp } from 'lucide-react';
+import { GitFork, Rss, Heart, ArrowUp } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -7,12 +7,16 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const socials = [
+  { icon: GitFork, href: 'https://github.com/mulmukendi', label: 'GitHub' },
+  { icon: Rss, href: 'https://www.linkedin.com/in/mulumba-mukendi-61a34b25b', label: 'LinkedIn' },
+];
+
 export default function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <footer className="relative border-t border-white/5 bg-dark-900">
-      {/* Top divider glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -39,10 +43,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {navLinks.map(({ label, href }) => (
                 <li key={href}>
-                  <a
-                    href={href}
-                    className="text-slate-500 hover:text-primary-400 text-sm transition-colors"
-                  >
+                  <a href={href} className="text-slate-500 hover:text-primary-400 text-sm transition-colors">
                     {label}
                   </a>
                 </li>
@@ -50,41 +51,25 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact snippet */}
+          {/* Social links */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Contact</h4>
-            <ul className="space-y-2 text-slate-500 text-sm">
-              <li>
-                <a href="mailto:mulmukendi@gmail.com" className="hover:text-primary-400 transition-colors">
-                  mulmukendi@gmail.com
+            <h4 className="text-white font-semibold text-sm mb-4">Connect</h4>
+            <div className="flex flex-col gap-3">
+              {socials.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-slate-500 hover:text-primary-400 text-sm transition-colors group"
+                >
+                  <div className="w-8 h-8 glass-card rounded-lg flex items-center justify-center group-hover:border-primary-500/30 transition-colors">
+                    <Icon size={15} />
+                  </div>
+                  {label}
                 </a>
-              </li>
-              <li>
-                <a href="tel:+27682387102" className="hover:text-primary-400 transition-colors">
-                  068 238 7102
-                </a>
-              </li>
-              <li className="pt-1">
-                <div className="flex gap-3">
-                  {[
-                    { icon: GitFork, href: 'https://github.com/mulmukendi', label: 'GitHub' },
-                    { icon: Rss, href: 'https://linkedin.com/in/mulumba-mukendi', label: 'LinkedIn' },
-                    { icon: Mail, href: 'mailto:mulmukendi@gmail.com', label: 'Email' },
-                  ].map(({ icon: Icon, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="w-9 h-9 glass-card rounded-lg flex items-center justify-center text-slate-500 hover:text-primary-400 hover:border-primary-500/30 transition-all duration-200"
-                    >
-                      <Icon size={16} />
-                    </a>
-                  ))}
-                </div>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -100,7 +85,6 @@ export default function Footer() {
             React · Vite · Tailwind CSS
           </p>
 
-          {/* Back to top */}
           <button
             onClick={scrollTop}
             aria-label="Back to top"
