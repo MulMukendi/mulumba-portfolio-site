@@ -9,8 +9,8 @@ import { GitFork, Rss, Send, CheckCircle, AlertCircle } from 'lucide-react';
 // 4. Set USE_FORMSPREE = true
 // Until then, submissions open the user's email client via mailto.
 // ─────────────────────────────────────────────────────────────
-const FORMSPREE_ID = '';       // e.g. 'xabcdefg'
-const USE_FORMSPREE = false;   // flip to true once you have your Formspree ID
+const FORMSPREE_ID = 'xkodkewq';
+const USE_FORMSPREE = true;
 const YOUR_EMAIL   = 'mulmukendi@gmail.com';
 
 export default function Contact() {
