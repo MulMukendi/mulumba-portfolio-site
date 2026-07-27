@@ -36,7 +36,7 @@ const projects = [
     color: 'from-blue-500 to-cyan-400',
     features: ['Multi-user auth', 'Transaction fees', 'Balance tracking', 'Session management'],
     github: 'https://github.com/mulmukendi',
-    demo: null,
+    demo: 'https://mulumba-mukendi-atm.vercel.app/',
   },
   {
     id: 4,
