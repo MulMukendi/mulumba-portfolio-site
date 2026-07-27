@@ -2,11 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { GitFork, Rss, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 // ─────────────────────────────────────────────────────────────
-// SETUP: Go to https://formspree.io, create a free account,
-// make a new form pointed at your email, then paste the
-// form ID below (the part after formspree.io/f/).
+// To receive form submissions by email:
+// 1. Go to https://formspree.io and sign up (free)
+// 2. Create a new form pointed at your email address
+// 3. Paste the form ID (e.g. "xabcdefg") into FORMSPREE_ID below
+// 4. Set USE_FORMSPREE = true
+// Until then, submissions open the user's email client via mailto.
 // ─────────────────────────────────────────────────────────────
-const FORMSPREE_ID = 'YOUR_FORM_ID';
+const FORMSPREE_ID = '';       // e.g. 'xabcdefg'
+const USE_FORMSPREE = false;   // flip to true once you have your Formspree ID
+const YOUR_EMAIL   = 'mulmukendi@gmail.com';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -47,22 +52,33 @@ export default function Contact() {
     setStatus('sending');
 
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          subject: form.subject || `Portfolio contact from ${form.name}`,
-          message: form.message,
-        }),
-      });
-
-      if (res.ok) {
+      if (USE_FORMSPREE && FORMSPREE_ID) {
+        // ── Formspree path ──────────────────────────────────────
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            subject: form.subject || `Portfolio contact from ${form.name}`,
+            message: form.message,
+          }),
+        });
+        if (res.ok) {
+          setStatus('success');
+          setForm({ name: '', email: '', subject: '', message: '' });
+        } else {
+          setStatus('error');
+        }
+      } else {
+        // ── Mailto fallback (works without any backend) ─────────
+        const subject = encodeURIComponent(form.subject || `Portfolio contact from ${form.name}`);
+        const body = encodeURIComponent(
+          `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+        );
+        window.location.href = `mailto:${YOUR_EMAIL}?subject=${subject}&body=${body}`;
         setStatus('success');
         setForm({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus('error');
       }
     } catch {
       setStatus('error');

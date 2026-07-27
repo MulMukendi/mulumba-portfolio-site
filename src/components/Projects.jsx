@@ -1,9 +1,33 @@
 import { useEffect, useRef } from 'react';
-import { ExternalLink, GitFork, Cpu, Users, CreditCard, Zap } from 'lucide-react';
+import { ExternalLink, GitFork, Cpu, Users, CreditCard, CloudSun } from 'lucide-react';
 
 const projects = [
   {
     id: 1,
+    icon: Users,
+    title: 'User Management System',
+    description:
+      'A full-stack CRUD application built with Java and Spring Boot. MySQL handles persistent data storage while Redis caching reduces database load and speeds up repeated reads — demonstrating real-world backend architecture patterns used in production systems.',
+    tags: ['Java', 'Spring Boot', 'React', 'MySQL', 'Redis', 'REST API'],
+    color: 'from-emerald-500 to-teal-400',
+    features: ['Redis caching', 'MySQL storage', 'CRUD operations', 'REST API'],
+    github: 'https://github.com/mulmukendi',
+    demo: null,
+  },
+  {
+    id: 2,
+    icon: CloudSun,
+    title: 'Weather Application',
+    description:
+      'A React weather app that retrieves and displays real-time weather data via external REST APIs. Implements a multi-step API workflow — converting user-entered city names or codes into geographic coordinates before fetching weather data. Handles asynchronous requests, dynamic UI updates, input validation, and meaningful error feedback for invalid searches.',
+    tags: ['React', 'REST APIs', 'JavaScript', 'Async/Await', 'API Integration'],
+    color: 'from-sky-500 to-blue-400',
+    features: ['Real-time weather', 'Geo-coordinate lookup', 'Async API calls', 'Error handling'],
+    github: 'https://github.com/mulmukendi',
+    demo: null,
+  },
+  {
+    id: 3,
     icon: CreditCard,
     title: 'Advanced ATM System',
     description:
@@ -11,25 +35,11 @@ const projects = [
     tags: ['React', 'Vite', 'Tailwind CSS', 'JavaScript', 'JSON'],
     color: 'from-blue-500 to-cyan-400',
     features: ['Multi-user auth', 'Transaction fees', 'Balance tracking', 'Session management'],
-    path: 'Advanced ATM',
-    demo: null,
     github: 'https://github.com/mulmukendi',
+    demo: null,
   },
   {
-    id: 2,
-    icon: Users,
-    title: 'User Management System',
-    description:
-      'A full-stack CRUD application for managing users, built with Java and Spring Boot on the backend. MySQL handles persistent data storage while Redis caching reduces database load and speeds up repeated reads — demonstrating real-world backend architecture patterns.',
-    tags: ['Java', 'Spring Boot', 'React', 'MySQL', 'Redis', 'REST API'],
-    color: 'from-emerald-500 to-teal-400',
-    features: ['Redis caching', 'MySQL storage', 'CRUD operations', 'REST API'],
-    path: 'User Management System',
-    demo: null,
-    github: 'https://github.com/mulmukendi',
-  },
-  {
-    id: 3,
+    id: 4,
     icon: Cpu,
     title: 'Circuit Controller',
     description:
@@ -37,23 +47,10 @@ const projects = [
     tags: ['Assembly', 'MPLAB', 'Proteus', 'PIC Microcontroller', 'Embedded Systems'],
     color: 'from-violet-500 to-pink-400',
     features: ['Assembly code', 'Memory control', 'LED circuit logic', 'Proteus simulation'],
-    path: 'Circuit Controller',
-    demo: null,
     github: 'https://github.com/mulmukendi',
-  },
-  {
-    id: 4,
-    icon: Zap,
-    title: 'ATM — Beginner Versions',
-    description:
-      'Two earlier iterations of the ATM project (simple and intermediate) showcasing the progression from vanilla HTML/CSS/JS to more structured approaches. A snapshot of rapid skill growth.',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'JSON'],
-    color: 'from-orange-500 to-yellow-400',
-    features: ['Vanilla JS', 'Clean UI', 'PIN auth', 'Iterative design'],
-    path: 'Beginner Stage Projects',
     demo: null,
-    github: 'https://github.com/mulmukendi',
   },
+
 ];
 
 function ProjectCard({ project, index }) {
@@ -62,9 +59,8 @@ function ProjectCard({ project, index }) {
   return (
     <div
       className="reveal opacity-0 glass-card group hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col overflow-hidden"
-      style={{ transitionDelay: `${index * 100}ms` }}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
-      {/* Top accent bar */}
       <div className={`h-1 w-full bg-gradient-to-r ${color}`} />
 
       <div className="p-6 flex flex-col flex-1">
@@ -75,11 +71,9 @@ function ProjectCard({ project, index }) {
               <Icon size={22} className="text-white" />
             </div>
           </div>
-          <div>
-            <h3 className="font-bold text-white text-lg leading-tight group-hover:text-primary-300 transition-colors">
-              {title}
-            </h3>
-          </div>
+          <h3 className="font-bold text-white text-lg leading-tight group-hover:text-primary-300 transition-colors pt-1">
+            {title}
+          </h3>
         </div>
 
         {/* Description */}
@@ -90,7 +84,7 @@ function ProjectCard({ project, index }) {
           {features.map((f) => (
             <span
               key={f}
-              className={`text-xs px-2.5 py-1 rounded-full bg-gradient-to-r ${color} bg-opacity-10 text-white/80 font-medium`}
+              className="text-xs px-2.5 py-1 rounded-full text-white/70 font-medium"
               style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
             >
               {f}
@@ -128,7 +122,6 @@ function ProjectCard({ project, index }) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-primary-400 hover:text-primary-300 transition-colors font-medium ml-auto"
-              aria-label={`Live demo of ${title}`}
             >
               Live Demo
               <ExternalLink size={14} />
@@ -164,7 +157,6 @@ export default function Projects() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-primary-500/40 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16 reveal opacity-0">
           <p className="text-primary-400 font-mono text-sm tracking-widest uppercase mb-3">03. Projects</p>
           <h2 className="section-title">Things I've Built</h2>
@@ -173,14 +165,13 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Grid */}
+        {/* 2x2 grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
 
-        {/* GitHub CTA */}
         <div className="text-center mt-12 reveal opacity-0">
           <a
             href="https://github.com/mulmukendi"
