@@ -24,7 +24,7 @@ const projects = [
     color: 'from-sky-500 to-blue-400',
     features: ['Real-time weather', 'Geo-coordinate lookup', 'Async API calls', 'Error handling'],
     github: 'https://github.com/mulmukendi',
-    demo: null,
+    demo: 'https://mulumba-weather-app.vercel.app/',
   },
   {
     id: 3,
