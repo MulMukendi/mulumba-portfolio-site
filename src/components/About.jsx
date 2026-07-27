@@ -79,7 +79,7 @@ export default function About() {
                 </div>
                 <div>
                   <div className="text-white font-medium">Tshwane University of Technology</div>
-                  <div className="text-slate-500 text-xs mt-0.5">BSc Computer Science · Final Year</div>
+                  <div className="text-slate-500 text-xs mt-0.5">Diploma Computer Science · Final Year</div>
                 </div>
               </div>
             </div>
