@@ -12,7 +12,7 @@ const projects = [
     color: 'from-emerald-500 to-teal-400',
     features: ['Redis caching', 'MySQL storage', 'CRUD operations', 'REST API'],
     github: 'https://github.com/mulmukendi',
-    demo: null,
+    demo: 'https://user-management-system-coral.vercel.app',
   },
   {
     id: 2,
