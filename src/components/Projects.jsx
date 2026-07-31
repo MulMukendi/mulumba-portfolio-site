@@ -7,7 +7,7 @@ const projects = [
     icon: Users,
     title: 'User Management System',
     description:
-      'A full-stack CRUD application built with Java and Spring Boot. MySQL handles persistent data storage while Redis caching reduces database load and speeds up repeated reads — demonstrating real-world backend architecture patterns used in production systems.',
+      'A full-stack CRUD application built with Java, Spring Boot, and React. The frontend is deployed on Vercel, the backend on Render, MySQL is hosted on Aiven for persistent data storage, and Redis caching is provided by Upstash to reduce database load and improve response times. The project demonstrates RESTful API development, caching, cloud deployment, and real-world backend architecture patterns used in modern production systems.',
     tags: ['Java', 'Spring Boot', 'React', 'MySQL', 'Redis', 'REST API'],
     color: 'from-emerald-500 to-teal-400',
     features: ['Redis caching', 'MySQL storage', 'CRUD operations', 'REST API'],
