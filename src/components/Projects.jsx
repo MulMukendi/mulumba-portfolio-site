@@ -7,7 +7,7 @@ const projects = [
     icon: Users,
     title: 'User Management System',
     description:
-      'A full-stack CRUD application built with Java, Spring Boot, and React. The frontend is deployed on Vercel, the backend on Render, MySQL is hosted on Aiven for persistent data storage, and Redis caching is provided by Upstash to reduce database load and improve response times. The project demonstrates RESTful API development, caching, cloud deployment, and real-world backend architecture patterns used in modern production systems.',
+      "A full-stack CRUD application built with Java, Spring Boot, and React. The frontend is deployed on Vercel, the backend on Render, MySQL is hosted on Aiven for persistent data storage, and Redis caching is provided by Upstash to reduce database load and improve response times. The project demonstrates RESTful API development, caching, cloud deployment, and real-world backend architecture patterns used in modern production systems. Note: The backend is hosted on Render's free tier, which may take 1–2 minutes to wake up after a period of inactivity. Once the service is running, subsequent requests are much faster.",
     tags: ['Java', 'Spring Boot', 'React', 'MySQL', 'Redis', 'REST API'],
     color: 'from-emerald-500 to-teal-400',
     features: ['Redis caching', 'MySQL storage', 'CRUD operations', 'REST API'],
@@ -19,7 +19,7 @@ const projects = [
     icon: CloudSun,
     title: 'Weather Application',
     description:
-      'A React weather app that retrieves and displays real-time weather data via external REST APIs. Implements a multi-step API workflow — converting user-entered city names or codes into geographic coordinates before fetching weather data. Handles asynchronous requests, dynamic UI updates, input validation, and meaningful error feedback for invalid searches.',
+      'A React weather app that retrieves and displays real-time weather data via external REST APIs. Implements a multi-step API workflow — converting user-entered city names or codes into geographic coordinates before fetching weather data. Handles asynchronous requests, dynamic UI updates, input validation, and meaningful error feedback for invalid searches. ',
     tags: ['React', 'REST APIs', 'JavaScript', 'Async/Await', 'API Integration'],
     color: 'from-sky-500 to-blue-400',
     features: ['Real-time weather', 'Geo-coordinate lookup', 'Async API calls', 'Error handling'],
